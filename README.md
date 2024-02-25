@@ -3,6 +3,8 @@ In this project, we will be enhancing our learning about RISC-V open-source ISA 
 RISC-V is gaining traction across industries for its open-source nature, scalability, and efficiency, driving innovation in custom processor designs. It offers a modular and standardized framework, enabling diverse applications from embedded systems to high-performance computing. As industry support and development ecosystem expand, RISC-V continues to emerge as a compelling alternative to proprietary instruction set architectures.
 
 ----------
+![board_in_hand](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/c9c3cb2c-9139-4c94-98ac-e9fa82e8aa48)
+
 ## BOARD TECHNICAL SPECIFICATIONS:
 
 | Board Name : VSDSquadron Mini   SKU : VSDSQM    Microcontroller : CH32V003F4U6 chip with 32-bit RISC-V core based on RV32EC instruction set |
@@ -61,14 +63,11 @@ git clone https://github.com/riscv/riscv-gnu-toolchain --recursive
 ````
 mkdir /opt/riscv
 ````
-*try sudo incase of permission denial. In my case I have created a driectory named as below
+*try sudo incase of permission denial. In my case I have created a driectory named as below and then gave full permission of this directory
+
 
 ````
 mkdir riscv   # in home directory
-````
-and then gave full permission of this directory
-
-```` 
 chmod -R 777 /home/sumanyu/riscv
 ````
 #### Configure and make inside the risc-v-gnu-toolchain directory
