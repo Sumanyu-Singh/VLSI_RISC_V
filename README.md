@@ -25,20 +25,20 @@ RISC-V is gaining traction across industries for its open-source nature, scalabi
 | SRAM  :                                                                   2kb onchip volatile sram     16kb external program memory |                                  
 
 --------------------------------------------------------------------------                                            
-This repo is meant for documenting the tasks aggisned weekly.
+This repository is meant for documenting the tasks aggisned weekly.
 
-<details>
-    <summary> TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED</summary>
+## TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED
   
-1) Install RISC-V GNU Toolchain
+* Install RISC-V GNU Toolchain RISC-V based compiler)
   
-2) Install Yosys (Synthesis Tool)
+* Install Yosys (Synthesis Tool)
   
-3) Install iverilog (Verilog Simulator)
+* Install iverilog (Verilog Simulator)
  
-4) Install gtkwave (Simulation/Timing Waveform Viewer)
-   
-### 1) INSTALL RISC-V GNU TOOLCHAIN
+* Install gtkwave (Simulation/Timing Waveform Viewer)
+--------------------------------------------------------------------------------------------------------------------------------
+* ### INSTALL RISC-V GNU TOOLCHAIN
+
 ````
 sudo apt install git-all   # To install git and all related packages.
 ````
@@ -47,42 +47,87 @@ sudo apt install git-all   # To install git and all related packages.
 ````
 sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev
 ````
-*make sure to install the dependencies*
+*make sure to install all the required dependencies*
 
 ![gnu_dependencies](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/bccbbd3c-cc59-4959-a187-0ef0e9abd1c2)
 
 ```
-git clone https://github.com/riscv/riscv-gnu-toolchain
+git clone https://github.com/riscv/riscv-gnu-toolchain --recursive
 ```
 ![gnu_toolchain_clone](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/2d917a34-48fe-4c0c-9fb8-5e14e102700c)
 
-## Create a opt dir
-```mkdir /opt/riscv```  *try sudo incase of permission denial*
-In my case I created a driectory ```mkdir riscv``` and ``` chmod 777 home/nawras/riscv ```
-## Config and make inside the risc-v gnu toolchain dir 
-```./configure --prefix=/opt/riscv```  
-In my case ```./configure --prefix=/home/nawras/riscv```  
-Then
-```make``` **(Have patience)**
-### Troubleshooting
-**ERROR 1**: "gcc not found"
-try ```sudo apt-get install build-essential```
-see if gcc is in /usr/bin/
-**ERROR 2**: "no acceptable c compiler found in $PATH"
-Open the .bashrc by any editors like vim,emacs,nano,gedit ```nano ~/.bashrc``` 
-Add the below line at the end of .bashrc and save it
-```export PATH="$PATH:/usr/bin/gcc```
-**ERROR 3**: Even after installing gcc g++ sometimes it shows 'gcc' command not found ,though it suggest to ```sudo apt install gcc``` which again will cause the same error. I figured this by ```ls```'ing the /usr/bin directory to find the gcc g++ cc to be in red text with black background indicates broken link or missing file.
-Better purge it at **YOUR OWN RISK** and reinstall it again.
-```sudo apt-get purge gcc```
-or **REINSTALL** ```sudo apt-get install --reinstall gcc``` (didn't work for me)
-### INSTALLING IVERILOG GTKWAVE & YOSYS
-### YOSYS
-```bash
+#### Creating opt dir
+
+````
+mkdir /opt/riscv
+````
+*try sudo incase of permission denial. In my case I have created a driectory named as below
+
+````
+mkdir riscv   # in home directory
+````
+and then gave full permission of this directory
+
+```` 
+chmod -R 777 /home/sumanyu/riscv
+````
+#### Configure and make inside the risc-v-gnu-toolchain directory
+
+````
+./configure --prefix=/opt/riscv
+```` 
+But, I created different directory so I used below command
+````
+./configure --prefix=/home/sumanyu/riscv
+ make
+````
+![config_make](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/4566c905-21e1-45eb-b49d-dbe6e88a89d2)
+
+* ##### NOTE: It takes more time, so wait till it is finished
+Also, do run below commands for installing build-essentials and avoiding error in gcc installation
+````
+sudo apt-get install build-essential
+````
+Add gcc path in $PATH variable or add in .bashrc file(in home directory), add at last line
+
+````
+gvim .bashrc
+export PATH= "$PATH:/usr/bin/gcc"
+````
+* ### INSTALL YOSYS
+
+````
 git clone https://github.com/YosysHQ/yosys.git
-cd yosys 
+cd yosys
+sudo apt install make
 sudo apt-get install build-essential clang bison flex \libreadline-dev gawk tcl-dev libffi-dev git \ graphviz xdot pkg-config python3 libboost-system-dev\libboost-python-dev libboost-filesystem-dev zlib1g-dev
 make config-gcc
 make 
 sudo make install
+````
+
+![git_clone_yosys](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/6dab4fbf-b006-42cd-9c63-90cfc0f70e28)
+
+![install_make_build_essen](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/9a0c4ab1-3163-430a-99c3-484be31298c0)
+
+![make](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/3a222797-0639-4850-b55b-2005386bd82a)
+
+![make_complete](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/5be5a6dc-2781-4655-9b43-749502cac4bd)
+
+* ### INSTALL IVERILOG
+
 ```
+sudo apt-get install iverilog
+```
+![iverilog](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/7190f933-241a-4d54-9f6d-0924f4549c82)
+
+* ### INSTALL GTKWAVE
+````
+sudo apt-get install gtkwave
+````
+![gtkwave](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/04594765-eca1-4863-a55b-d66398ba4696)
+
+
+
+
+
