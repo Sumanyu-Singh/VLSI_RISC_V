@@ -29,6 +29,10 @@ RISC-V is gaining traction across industries for its open-source nature, scalabi
 --------------------------------------------------------------------------                                            
 This repository is meant for documenting the tasks aggisned weekly.
 
+* [TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED](#task-1---installing-required-packages-and-tools-required)
+
+* [TASK 2 - RISC-V ISA INSTRUCTION TYPES AND FORMAT](#task-2---risc---v-isa-instruction-types-and-format)
+
 ## TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED
   
 * Install RISC-V GNU Toolchain RISC-V based compiler)
@@ -125,6 +129,8 @@ sudo apt-get install iverilog
 sudo apt-get install gtkwave
 ````
 ![gtkwave](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/04594765-eca1-4863-a55b-d66398ba4696)
+
+## TASK 2 - RISC-V ISA INSTRUCTION TYPES AND FORMAT
 
 
 
