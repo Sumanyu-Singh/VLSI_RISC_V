@@ -137,6 +137,10 @@ sudo apt-get install gtkwave
 
 The **RISC-V ISA (Instruction Set Architecture)** is a standardized set of instructions that define the behavior of a RISC-V processor. It offers different instruction formats for various types of operations, including arithmetic, logical, control transfer, and memory access. The ISA is designed to be modular, allowing for optional extensions to support specific application domains or customizations. With its open nature, the RISC-V ISA facilitates the development of compatible hardware and software ecosystems, driving innovation and flexibility in computing systems.
 
+**Levels of Representation/Interpretation of RISC-V Instruction**
+
+![levels_of_representation](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/9a7bc193-c7ca-4428-86cc-d83d14d1428e)
+
 The RISC-V instruction format consists of 32-bit instructions divided into several fields:
 
 **1. Opcode (op):** Specifies the operation to be performed.
@@ -149,7 +153,7 @@ The RISC-V instruction format consists of 32-bit instructions divided into sever
 
 **5. Function code (funct3 and funct7):** Additional operation specifier, used for certain instructions.
 
-![riscv_instruction_formats](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/2d09cb01-7a66-4066-85a7-020f7a942d8b)
+![riscv_instruction_formats](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/24ad76cb-aabc-49bc-bb1f-fb0aecf28206)
 
 In RISC-V, there are several types of instructions, each designed to perform specific operations:
 
