@@ -149,6 +149,8 @@ The RISC-V instruction format consists of 32-bit instructions divided into sever
 
 **5. Function code (funct3 and funct7):** Additional operation specifier, used for certain instructions.
 
+![riscv_instruction_formats](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/2d09cb01-7a66-4066-85a7-020f7a942d8b)
+
 In RISC-V, there are several types of instructions, each designed to perform specific operations:
 
 **1. R-type:** Register-type instructions operate on data stored in registers. Examples include arithmetic (add, subtract), logical (AND, OR, XOR), and shift instructions.
@@ -164,6 +166,10 @@ In RISC-V, there are several types of instructions, each designed to perform spe
 **6. J-type:** Jump-type instructions perform unconditional jumps to a target address.
 
 **7. RV32I/RV64I/RV128I:** These are base integer instruction set extensions of RISC-V, offering different integer register widths (32-bit, 64-bit, 128-bit).
+
+**Below is the sample list of commands alongwith codes for RISC-V Intsructions,**
+
+![instruction_examples](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/969dd4d3-e133-4648-933b-fe363171a9ac)
 
 Additionally, RISC-V supports various optional extensions, such as M (integer multiplication and division), F (single-precision floating-point), D (double-precision floating-point), and many more, each introducing additional instruction types tailored for specific functionalities.
 
