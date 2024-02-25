@@ -31,8 +31,8 @@ This repository is meant for documenting the tasks aggisned weekly.
 
 * [TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED](#task-1---installing-required-packages-and-tools-required)
 
-* [TASK 2 - RISC-V ISA INSTRUCTION TYPES AND FORMAT](#task-2---risc---v-isa-instruction-types-and-format)
-
+* [TASK 2 - RISC-V ISA INSTRUCTION TYPES AND FORMAT](#task-2---risc-v-isa-instruction-types-and-format)
+  
 ## TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED
   
 * Install RISC-V GNU Toolchain RISC-V based compiler)
@@ -130,7 +130,12 @@ sudo apt-get install gtkwave
 ````
 ![gtkwave](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/04594765-eca1-4863-a55b-d66398ba4696)
 
+
 ## TASK 2 - RISC-V ISA INSTRUCTION TYPES AND FORMAT
+
+[The RISC-V Instruction Set Manual](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf)
+
+The RISC-V ISA (Instruction Set Architecture) is a standardized set of instructions that define the behavior of a RISC-V processor. It offers different instruction formats for various types of operations, including arithmetic, logical, control transfer, and memory access. The ISA is designed to be modular, allowing for optional extensions to support specific application domains or customizations. With its open nature, the RISC-V ISA facilitates the development of compatible hardware and software ecosystems, driving innovation and flexibility in computing systems.
 
 
 
