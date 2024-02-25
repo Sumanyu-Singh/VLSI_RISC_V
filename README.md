@@ -32,6 +32,9 @@ This repository is meant for documenting the tasks aggisned weekly.
 * [TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED](#task-1---installing-required-packages-and-tools-required)
 
 * [TASK 2 - RISC-V ISA INSTRUCTION TYPES AND FORMAT](#task-2---risc-v-isa-instruction-types-and-format)
+
+* [TASK 3 - COMPILING C CODE AND VIEW RISC-V OBJDMP](#task-3---compiling-c-code-and-view-risc-v-objdmp)
+
   
 ## TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED
   
@@ -177,6 +180,39 @@ In RISC-V, there are several types of instructions, each designed to perform spe
 
 Additionally, RISC-V supports various optional extensions, such as M (integer multiplication and division), F (single-precision floating-point), D (double-precision floating-point), and many more, each introducing additional instruction types tailored for specific functionalities.
 
+## TASK 3 - COMPILING C CODE AND VIEW RISC-V OBJDMP
+
+I have written a C code for finding factorial of a given number(n). Factorial code in C language is as below (factn.c),
+
+````
+#include<stdio.h>  
+int main()    
+{    
+ int i,fact=1,number;    
+ printf("Enter a number: ");    
+  scanf("%d",&number);    
+    for(i=1;i<=number;i++){    
+      fact=fact*i;    
+  }    
+  printf("Factorial of %d is: %d",number,fact);    
+return 0;  
+}
+````
+I have used number= 8, to calculate factorial of 8. Compiling c code by using below command
+
+````
+riscv64-unknown-elf-gcc -o1 -o fact8.o fact8.c
+````
+
+![fact8_code_compile](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/786df7e6-362e-4324-bfe0-d0847edc0da5)
+
+Aftercompiling, we can see assembply code generated using RISC-V Objdmp as below,
+
+````
+riscv64-unknown-elf-objdump -d fact8.o | less
+````
+
+![fact8_objdmp](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/f0d9a180-a69f-4c28-934f-bc0b5984482d)
 
 
 
