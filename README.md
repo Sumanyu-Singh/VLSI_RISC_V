@@ -53,7 +53,7 @@ sudo apt install git-all   # To install git and all related packages.
 ````
 sudo apt-get install autoconf automake autotools-dev curl python3 python3-pip libmpc-dev libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo gperf libtool patchutils bc zlib1g-dev libexpat-dev ninja-build git cmake libglib2.0-dev
 ````
-*make sure to install all the required dependencies*
+**make sure to install all the required dependencies**
 
 ![gnu_dependencies](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/bccbbd3c-cc59-4959-a187-0ef0e9abd1c2)
 
@@ -135,8 +135,37 @@ sudo apt-get install gtkwave
 
 [The RISC-V Instruction Set Manual](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf)
 
-The RISC-V ISA (Instruction Set Architecture) is a standardized set of instructions that define the behavior of a RISC-V processor. It offers different instruction formats for various types of operations, including arithmetic, logical, control transfer, and memory access. The ISA is designed to be modular, allowing for optional extensions to support specific application domains or customizations. With its open nature, the RISC-V ISA facilitates the development of compatible hardware and software ecosystems, driving innovation and flexibility in computing systems.
+The **RISC-V ISA (Instruction Set Architecture)** is a standardized set of instructions that define the behavior of a RISC-V processor. It offers different instruction formats for various types of operations, including arithmetic, logical, control transfer, and memory access. The ISA is designed to be modular, allowing for optional extensions to support specific application domains or customizations. With its open nature, the RISC-V ISA facilitates the development of compatible hardware and software ecosystems, driving innovation and flexibility in computing systems.
 
+The RISC-V instruction format consists of 32-bit instructions divided into several fields:
+
+**1. Opcode (op):** Specifies the operation to be performed.
+
+**2. rd:** Destination register where the result will be stored.
+
+**3. rs1 and rs2:** Source registers containing operand values.
+
+**4. Immediate (imm):** Immediate value for operations involving constants or offsets.
+
+**5. Function code (funct3 and funct7):** Additional operation specifier, used for certain instructions.
+
+In RISC-V, there are several types of instructions, each designed to perform specific operations:
+
+**1. R-type:** Register-type instructions operate on data stored in registers. Examples include arithmetic (add, subtract), logical (AND, OR, XOR), and shift instructions.
+
+**2. I-type:** Immediate-type instructions perform operations using an immediate value (constant) and a register operand. These instructions are used for arithmetic, logical, and data transfer operations with immediate values.
+
+**3. S-type:** Store-type instructions store data from a register into memory. They typically use an immediate offset to specify the memory location.
+
+**4. B-type:** Branch-type instructions perform conditional branching based on a comparison result. They compare two registers and branch to a target address if the condition is met.
+
+**5. U-type:** Unconditional-type instructions include instructions for setting register values with an immediate value.
+
+**6. J-type:** Jump-type instructions perform unconditional jumps to a target address.
+
+**7. RV32I/RV64I/RV128I:** These are base integer instruction set extensions of RISC-V, offering different integer register widths (32-bit, 64-bit, 128-bit).
+
+Additionally, RISC-V supports various optional extensions, such as M (integer multiplication and division), F (single-precision floating-point), D (double-precision floating-point), and many more, each introducing additional instruction types tailored for specific functionalities.
 
 
 
