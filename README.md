@@ -212,7 +212,8 @@ After compiling, we can see assembply code generated using RISC-V Objdmp as belo
 riscv64-unknown-elf-objdump -d fact8.o | less
 ````
 
-![fact8_objdmp](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/f0d9a180-a69f-4c28-934f-bc0b5984482d)
+![fact8_objdmp](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/c7592c88-e2a2-444f-ad19-529310802181)
+
 
 
 
