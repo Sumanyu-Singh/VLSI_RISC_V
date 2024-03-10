@@ -39,7 +39,7 @@ This repository is meant for documenting the tasks aggisned weekly.
 
 * [TASK 5 - TESTING THE RV32I CORE](#task-5---testing-the-rv32i-core)
 
-* [TASK 6 - GATE LEVEL SIMULATION (GLS)](#task-6---gate-level-simulation-(gls))
+* [TASK 6 - GATE LEVEL SIMULATION (GLS)](#task-6---gate-level-simulation-gls)
   
 ## TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED
   
