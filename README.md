@@ -35,6 +35,11 @@ This repository is meant for documenting the tasks aggisned weekly.
 
 * [TASK 3 - COMPILING C CODE AND VIEW RISC-V OBJDMP](#task-3---compiling-c-code-and-view-risc-v-objdmp)
 
+* [TASK 4 - OPTIMIZATION OF C CODE IN GCC AND SPIKE INTRODUCTION](#task-4---optimization-of-c-code-in-gcc-and-spike-introduction)
+
+* [TASK 5 - TESTING THE RV32I CORE](#task-5---testing-the-rv32i-core)
+
+* [TASK 6 - GATE LEVEL SIMULATION (GLS)](#task-6---gate-level-simulation)
   
 ## TASK 1 - INSTALLING REQUIRED PACKAGES AND TOOLS REQUIRED
   
@@ -215,6 +220,9 @@ riscv64-unknown-elf-objdump -d fact8.o | less
 
 ![fact8_objdmp](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/c7592c88-e2a2-444f-ad19-529310802181)
 
+## TASK 4 - OPTIMIZATION OF C CODE IN GCC AND SPIKE INTRODUCTION
 
+Optimization in GCC is essential for improving the performance, efficiency, and/or size of compiled code. By enabling optimization flags like `-O1`, `-O2`, or `-O3`, GCC applies various transformations and analyses to produce faster or smaller executables. Optimization helps maximize resource utilization, minimize execution time, and enhance overall program performance, making it a crucial step in the software development process.
 
-
+## TASK 5 - TESTING THE RV32I CORE
+## TASK 6 - GATE LEVEL SIMULATION (GLS)
