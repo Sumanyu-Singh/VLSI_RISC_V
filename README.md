@@ -204,7 +204,8 @@ I have used number= 8, to calculate factorial of 8. Compiling C code using RISC-
 riscv64-unknown-elf-gcc -o1 -o fact8.o fact8.c
 ````
 
-![fact8_code_compile](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/786df7e6-362e-4324-bfe0-d0847edc0da5)
+![fact8_code_compile](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/7d89060b-e74e-4d09-a959-1c2c4398235a)
+
 
 After compiling, we can see assembply code generated using RISC-V Objdmp as below,
 
