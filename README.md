@@ -226,7 +226,7 @@ Optimization in GCC is essential for improving the performance, efficiency, and/
 
 The `-Ofast` optimization flag in GCC enables aggressive optimizations, including disregarding strict IEEE compliance for floating-point operations. It can significantly improve execution speed but may produce results that deviate from standard floating-point behavior. Use with caution when precision is not critical, such as in numerical simulations or performance-critical applications.
 
-Assembly Language(ASM) of factorial C Code:
+**Assembly Language(ASM) of factorial of a number**:
 
 ````
 riscv64-unknown-elf-gcc -o1 -o fact8.o fact8.c
@@ -280,7 +280,7 @@ riscv64-unknown-elf-objdump -d fact8.o | less
 ````
 riscv64-unknown-elf-gcc -Ofast -o fact8.o fact8.c
 riscv64-unknown-elf-objdump -d fact8.o | less
-
+````
 ````
 0000000000010104 <main>:
    10104:       6629                    lui     a2,0xa
@@ -325,7 +325,6 @@ riscv64-unknown-elf-objdump -d fact8.o | less
    1016e:       4601                    li      a2,0
    10170:       f95ff0ef                jal     10104 <main>
    10174:       bf95                    j       100e8 <exit>
-
 ````
 ## TASK 5 - TESTING THE RV32I CORE
 ## TASK 6 - GATE LEVEL SIMULATION (GLS)
