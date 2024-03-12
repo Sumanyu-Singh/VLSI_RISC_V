@@ -231,7 +231,6 @@ The `-Ofast` optimization flag in GCC enables aggressive optimizations, includin
 ````
 riscv64-unknown-elf-gcc -o1 -o fact8.o fact8.c
 riscv64-unknown-elf-objdump -d fact8.o | less
-
 ````
 
 ```````
