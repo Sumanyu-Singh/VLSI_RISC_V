@@ -223,6 +223,7 @@ riscv64-unknown-elf-objdump -d fact8.o | less
 ## TASK 4 - OPTIMIZATION OF C CODE IN GCC AND SPIKE INTRODUCTION
 
 Optimization in GCC is essential for improving the performance, efficiency, and/or size of compiled code. By enabling optimization flags like `-O1`, `-O2`, or `-O3`, GCC applies various transformations and analyses to produce faster or smaller executables. Optimization helps maximize resource utilization, minimize execution time, and enhance overall program performance, making it a crucial step in the software development process.
+The `-Ofast` optimization flag in GCC enables aggressive optimizations, including disregarding strict IEEE compliance for floating-point operations. It can significantly improve execution speed but may produce results that deviate from standard floating-point behavior. Use with caution when precision is not critical, such as in numerical simulations or performance-critical applications.
 
 ## TASK 5 - TESTING THE RV32I CORE
 ## TASK 6 - GATE LEVEL SIMULATION (GLS)
