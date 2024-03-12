@@ -223,7 +223,109 @@ riscv64-unknown-elf-objdump -d fact8.o | less
 ## TASK 4 - OPTIMIZATION OF C CODE IN GCC AND SPIKE INTRODUCTION
 
 Optimization in GCC is essential for improving the performance, efficiency, and/or size of compiled code. By enabling optimization flags like `-O1`, `-O2`, or `-O3`, GCC applies various transformations and analyses to produce faster or smaller executables. Optimization helps maximize resource utilization, minimize execution time, and enhance overall program performance, making it a crucial step in the software development process.
+
 The `-Ofast` optimization flag in GCC enables aggressive optimizations, including disregarding strict IEEE compliance for floating-point operations. It can significantly improve execution speed but may produce results that deviate from standard floating-point behavior. Use with caution when precision is not critical, such as in numerical simulations or performance-critical applications.
 
+Assembly Language(ASM) of factorial C Code:
+
+````
+riscv64-unknown-elf-gcc -o1 -o fact8.o fact8.c
+riscv64-unknown-elf-objdump -d fact8.o | less
+
+````
+
+```````
+00000000000101a0 <main>:
+   101a0:       1101                    addi    sp,sp,-32
+   101a2:       ec06                    sd      ra,24(sp)
+   101a4:       e822                    sd      s0,16(sp)
+   101a6:       1000                    addi    s0,sp,32
+   101a8:       4785                    li      a5,1
+   101aa:       fef42423                sw      a5,-24(s0)
+   101ae:       47a1                    li      a5,8
+   101b0:       fef42223                sw      a5,-28(s0)
+   101b4:       4785                    li      a5,1
+   101b6:       fef42623                sw      a5,-20(s0)
+   101ba:       a839                    j       101d8 <main+0x38>
+   101bc:       fe842783                lw      a5,-24(s0)
+   101c0:       873e                    mv      a4,a5
+   101c2:       fec42783                lw      a5,-20(s0)
+   101c6:       02f707bb                mulw    a5,a4,a5
+   101ca:       fef42423                sw      a5,-24(s0)
+   101ce:       fec42783                lw      a5,-20(s0)
+   101d2:       2785                    addiw   a5,a5,1
+   101d4:       fef42623                sw      a5,-20(s0)
+   101d8:       fec42783                lw      a5,-20(s0)
+   101dc:       873e                    mv      a4,a5
+   101de:       fe442783                lw      a5,-28(s0)
+   101e2:       2701                    sext.w  a4,a4
+   101e4:       2781                    sext.w  a5,a5
+   101e6:       fce7dbe3                bge     a5,a4,101bc <main+0x1c>
+   101ea:       fe842703                lw      a4,-24(s0)
+   101ee:       fe442783                lw      a5,-28(s0)
+   101f2:       863a                    mv      a2,a4
+   101f4:       85be                    mv      a1,a5
+   101f6:       67e5                    lui     a5,0x19
+   101f8:       ec078513                addi    a0,a5,-320 # 18ec0 <__clzdi2+0x3e>
+   101fc:       320000ef                jal     1051c <printf>
+   10200:       4781                    li      a5,0
+   10202:       853e                    mv      a0,a5
+   10204:       60e2                    ld      ra,24(sp)
+   10206:       6442                    ld      s0,16(sp)
+   10208:       6105                    addi    sp,sp,32
+   1020a:       8082                    ret
+
+```````
+
+````
+riscv64-unknown-elf-gcc -Ofast -o fact8.o fact8.c
+riscv64-unknown-elf-objdump -d fact8.o | less
+
+````
+0000000000010104 <main>:
+   10104:       6629                    lui     a2,0xa
+   10106:       6565                    lui     a0,0x19
+   10108:       1141                    addi    sp,sp,-16
+   1010a:       d8060613                addi    a2,a2,-640 # 9d80 <exit-0x6368>
+   1010e:       45a1                    li      a1,8
+   10110:       e7050513                addi    a0,a0,-400 # 18e70 <__clzdi2+0x3c>
+   10114:       e406                    sd      ra,8(sp)
+   10116:       3b8000ef                jal     104ce <printf>
+   1011a:       60a2                    ld      ra,8(sp)
+   1011c:       4501                    li      a0,0
+   1011e:       0141                    addi    sp,sp,16
+   10120:       8082                    ret
+
+0000000000010122 <register_fini>:
+   10122:       00000793                li      a5,0
+   10126:       c791                    beqz    a5,10132 <register_fini+0x10>
+   10128:       6551                    lui     a0,0x14
+   1012a:       6b250513                addi    a0,a0,1714 # 146b2 <__libc_fini_array>
+   1012e:       7f60006f                j       10924 <atexit>
+   10132:       8082                    ret
+
+0000000000010134 <_start>:
+   10134:       0000b197                auipc   gp,0xb
+   10138:       e8c18193                addi    gp,gp,-372 # 1afc0 <__global_locale>
+   1013c:       23818513                addi    a0,gp,568 # 1b1f8 <__stdio_exit_handler>
+   10140:       0000b617                auipc   a2,0xb
+   10144:       68060613                addi    a2,a2,1664 # 1b7c0 <__BSS_END__>
+   10148:       8e09                    sub     a2,a2,a0
+   1014a:       4581                    li      a1,0
+   1014c:       65c000ef                jal     107a8 <memset>
+   10150:       00000517                auipc   a0,0x0
+   10154:       7d450513                addi    a0,a0,2004 # 10924 <atexit>
+   10158:       c519                    beqz    a0,10166 <_start+0x32>
+   1015a:       00004517                auipc   a0,0x4
+   1015e:       55850513                addi    a0,a0,1368 # 146b2 <__libc_fini_array>
+   10162:       7c2000ef                jal     10924 <atexit>
+   10166:       5d8000ef                jal     1073e <__libc_init_array>
+   1016a:       4502                    lw      a0,0(sp)
+   1016c:       002c                    addi    a1,sp,8
+   1016e:       4601                    li      a2,0
+   10170:       f95ff0ef                jal     10104 <main>
+   10174:       bf95                    j       100e8 <exit>
+
+````
 ## TASK 5 - TESTING THE RV32I CORE
 ## TASK 6 - GATE LEVEL SIMULATION (GLS)
