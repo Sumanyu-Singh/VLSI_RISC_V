@@ -226,7 +226,8 @@ Optimization in GCC is essential for improving the performance, efficiency, and/
 
 The `-Ofast` optimization flag in GCC enables aggressive optimizations, including disregarding strict IEEE compliance for floating-point operations. It can significantly improve execution speed but may produce results that deviate from standard floating-point behavior. Use with caution when precision is not critical, such as in numerical simulations or performance-critical applications.
 
-**Assembly Language(ASM) of factorial of a number**:
+For details refer: [Optimize-Options in GCC](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)
+**Assembly Language(ASM) of factorial of a number:**:
 
 ````
 riscv64-unknown-elf-gcc -o1 -o fact8.o fact8.c
@@ -325,5 +326,8 @@ riscv64-unknown-elf-objdump -d fact8.o | less
    10170:       f95ff0ef                jal     10104 <main>
    10174:       bf95                    j       100e8 <exit>
 ````
+
+**INNSTALLING SPIKE**
+For details refer: [Spike RISC-V ISA Simulator](https://github.com/riscv-software-src/riscv-isa-sim)
 ## TASK 5 - TESTING THE RV32I CORE
 ## TASK 6 - GATE LEVEL SIMULATION (GLS)
