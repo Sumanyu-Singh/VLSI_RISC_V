@@ -332,5 +332,82 @@ riscv64-unknown-elf-objdump -d fact8.o | less
 
 For details refer: [Spike RISC-V ISA Simulator](https://github.com/riscv-software-src/riscv-isa-sim)
 
+ ````
+ git clone https://github.com/riscv-software-src/riscv-isa-sim.git
+ sudo apt-get install device-tree-compiler libboost-regex-dev
+ cd riscv-isa-sim
+ mkdir build
+ cd build
+ ../configure --prefix=/home/sumanyu/riscv
+ make
+ sudo make install
+
+ ````
+The ```--prefix=/home/sumanyu/riscv``` is where the path is set to.
+
+**INSTALLING RISCV PROXY KERNEL(PK)**
+
+````
+git clone https://github.com/riscv-software-src/riscv-pk.git
+cd riscv-pk
+mkdir build
+cd build
+../configure --prefix=/home/sumanyu/riscv --host=riscv64-unknown-elf
+make
+make install
+
+````
+**ERROR 1**
+Below is the snapshot of error which I got while Installing RISC-V Proxy Kernel(PK):
+
+![riscv_pk_install_error_1](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/976532bb-8ce5-492a-9606-42bcecd05751)
+
+[**TROUBLESHOOT 1 -  HOST COMPILER , riscv-unknown-elf & PATH**](https://github.com/riscv-software-src/riscv-pk/issues/204)
+
+Make sure riscv64-unknown-elf-gcc is in your PATH when you run configure. I did below(on terminal) to resolve this issue:
+
+````
+export PATH="$PATH:/home/sumanyu/riscv/bin
+echo $PATH
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/bin/gcc:/home/sumanyu/riscv/bin
+````
+
+**ERROR 2** 
+![error_2_riscv_pk_install](https://github.com/Sumanyu-Singh/VLSI_RISC_V/assets/100671647/652dd6c2-fe4e-4a77-b6da-292801e43a51)
+
+[**TROUBLESHOOT 2 - Error: unrecognized opcode fence.i, extension zifencei required**](https://github.com/riscv-software-src/riscv-pk/issues/260) <br>
+
+Looks like the fence instruction is needed and I have to build a seperate riscv gnu toolchain for this by 
+
+````
+cd riscv-gnu-toolchain
+mkdir build
+cd build
+../configure --prefix=/home/sumanyu/riscv --with-arch=rv64gc_zfencei --with-abi=lp64d
+make
+````
+
+*NOW, I HAVE TO AGAIN CONFIGURE AND BUILD THE PROXY KERNEL* 
+````
+git clone https://github.com/riscv-software-src/riscv-pk.git
+cd riscv-pk
+mkdir build
+cd build
+../configure --prefix=/home/nawras/riscv --host=riscv64-unknown-elf
+make
+make install
+````
+*After doing above steps, I did not get any error*
+
+
+**OUTPUT WITH SPIKE PK**
+
+
+
+**OUTPUT WITH GCC**
+
+
+
+
 ## TASK 5 - TESTING THE RV32I CORE
 ## TASK 6 - GATE LEVEL SIMULATION (GLS)
